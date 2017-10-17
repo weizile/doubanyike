@@ -1,0 +1,61 @@
+<div class="viewport" infinite-scroll="more()">
+	<!-- 侧边导航 -->
+	<div ng-class="{navs:true,collapse:collapsed}" ng-controller="navController" >
+		<dl>
+			<dt class="login">
+			<div class="avatar">
+				<img src="./public/images/avatar.png" alt="">
+			</div>
+			<span>登录</span>
+			</dt>
+			<dd class="active" ng-repeat="nav in navName">
+				<a href="{{nav.url}}" class="{{nav.icon}}" ng-click="toggle()">
+					<span>{{nav.name}}</span>
+				</a>
+			</dd>
+		</dl>
+		<div class="extra">
+			<a href="javascript:;" class="icon-image">夜晚</a>
+			<a href="javascript:;" class="icon-download">离线</a>
+		</div>
+	</div>
+	<div class="container">
+		<!-- 头部 -->
+		<div ng-class="{header:true,collapse:collapsed}">
+			<a href="javascript:;" class="menu icon-menu" ng-click="toggle()"></a>
+			<h2>{{bigTitle}}</h2>
+			<a href="javascript:;" class="search icon-search"></a>
+		</div>
+		<!-- 主体 -->
+		<div ng-class="{body:true,collapse:collapsed}">
+			<div class="loading" ng-show="noshowin"></div>
+			<dl class="author" >
+				<dt ng-if="showin">本周推荐</dt>
+				<dd ng-repeat="authorCon in authorsCom" >
+					<a ng-href="#!/author/{{authorCon.id}}">
+						<div class="avatar">
+							<img ng-src="{{authorCon.avatar}}" alt="">
+						</div>
+						<div class="info">
+							<h5>{{authorCon.name}}</h5>
+							<p>{{authorCon.editor_notes}}</p>
+						</div>
+					</a>
+				</dd>
+				<dt ng-if="showin" >热门作者</dt>
+				<dd ng-repeat="authorHot in authorsHotMore">
+					<a ng-href="#!/author/{{authorHot.id}}">
+						<div class="avatar">
+							<img ng-src="{{authorHot.avatar}}" alt="">
+						</div>
+						<div class="info">
+							<h5>{{authorHot.name}}</h5>
+							<p>{{authorHot.editor_notes}}</p>
+						</div>
+					</a>
+				</dd>
+				<div class="authorLoadMore" ng-if="load"></div>
+			</dl>
+		</div>
+	</div>
+</div>

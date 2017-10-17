@@ -1,0 +1,39 @@
+<div class="viewport">
+	<div class="container">
+		<!-- 头部 -->
+		<div class="header">
+			<a href="#!/author" class="return"><</a>
+			<h2 ng-if="showin">{{person.author.name}}个人主页</h2>
+		</div>
+		<!-- 主体 -->
+		<div class="body">
+			<div class="loading" ng-show="noshowin"></div>
+			<div class="center-title">
+				<img src="{{person.author.avatar}}" alt="">
+				<h5>{{person.author.name}}</h5>
+				<p>{{person.author.resume}}</p>
+				<a href="javascript:;" ng-if="show">去豆瓣主页</a>
+			</div>
+			<div class="item" ng-show="showin">
+				<ul class="posts large">
+					<!-- 文章 -->
+					<li ng-repeat="post in person.posts">
+						<span href="javascript:;" class="tag" ng-if="post.column.name">{{post.column.name}}</span>
+						<div class="cont" >
+							<h3>{{post.title}}</h3>
+							<div class="brief">
+								<p ng-class="{only:post.display_style==10001}" ng-if="post.display_style != 10003">{{post.abstract}}</p>
+								<div class="thumb" ng-if="post.display_style==10002">
+									<img ng-src="{{post.thumbs[0].small.url}}" alt="">
+								</div>
+								<div class="gallery" ng-if="post.display_style==10003">
+									<img ng-src="{{post.thumbs[0].small.url}}" alt="">
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

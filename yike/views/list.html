@@ -1,0 +1,25 @@
+<div class="viewport">
+	<div class="container">
+		<!-- 头部 -->
+		<div class="header">
+			<a href="#!/category" class="return"><</a>
+			<h2>文章列表</h2>
+			<a href="javascript:;" class="search icon-search"></a>
+		</div>
+		<!-- 主体 -->
+		<div class="body" >
+			<div class="loading" ng-show="noshowin"></div>
+			<div class="posts-title" ng-if="showin">
+				<img ng-src="{{infoTop.icon}}" alt="">
+				<h5>{{infoTop.name}}</h5>
+				<p>{{infoTop.description}}</p>
+			</div>
+			<div class="item" ng-if="showin">
+				<ul class="posts">
+					<!-- 文章 -->
+					<post></post>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

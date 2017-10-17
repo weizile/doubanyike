@@ -1,0 +1,18 @@
+<div class="viewport">
+    <div class="container">
+        <!-- 头部 -->
+        <div class="header">
+            <a href="#!/today" class="return"><</a>
+        </div>
+            <!-- 主体 -->
+        <div ng-class="{body:true,collapse:collapsed}">
+                <div class="item">
+                    <div class="loading" ng-if="noshowin"></div>
+                    <div ng-repeat="post in posts" >
+                        <div ng-bind-html="post.content" ng-if="postid==post.id" class="post-content"></div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
